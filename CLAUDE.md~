@@ -1,0 +1,15 @@
+# Portfolio Site for Paolo
+## Visual Identity
+- Color palette: blue (#3754BF), chartreuse (#D1FF66), orange (#FFA47A), black
+- Logo font: Catallina
+- Display font: Auromiya
+- Body font: Modeco Trial Regular
+- Logo: "(copy)writer" submark
+- Aesthetic: Art Deco/Italian modernist editorial
+
+## Structure
+- Homepage: typographic project list
+
+## Tech
+- Pure HTML, CSS, JavaScript — no frameworks
+- Static files only
