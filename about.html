@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The King of Video Poker — Paolo Iacovelli</title>
+  <title>About — Paolo Iacovelli</title>
   <style>
     @font-face {
       font-family: 'Catallina';
@@ -121,7 +121,6 @@
 
     nav a:hover { opacity: 0.7; }
     nav a:hover::after { width: 100%; }
-    nav a.active { opacity: 1; }
     nav a.active::after { width: 100%; }
 
     /* ─── MAIN ───────────────────────────────────────── */
@@ -130,137 +129,70 @@
       padding: 0 4rem 6rem;
     }
 
-    /* ─── NOVEL HERO ─────────────────────────────────── */
-    .novel-hero {
-      padding: 4rem 0 3rem;
-      border-bottom: 1px solid rgba(209,255,102,0.15);
-    }
-
-    .novel-title {
-      font-family: 'Auromiya', serif;
-      font-size: clamp(1rem, 3.8vw, 3.8rem);
-      color: var(--chartreuse);
-      line-height: 1;
-      letter-spacing: 0.02em;
-      white-space: nowrap;
-    }
-
-    .novel-subtitle {
-      font-family: 'Modeco', sans-serif;
-      font-size: clamp(0.7rem, 1.1vw, 0.9rem);
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--chartreuse);
-      opacity: 0.55;
-      margin-top: 1rem;
-    }
-
-    /* ─── NOVEL BODY ─────────────────────────────────── */
-    .novel-body {
+    /* ─── ABOUT GRID ─────────────────────────────────── */
+    .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 5rem;
-      padding: 4rem 0;
-      border-bottom: 1px solid rgba(209,255,102,0.15);
+      grid-template-columns: 1fr 1.4fr;
+      gap: 6rem;
+      padding-top: 5rem;
+      align-items: start;
     }
 
-    /* ─── COVER ──────────────────────────────────────── */
-    .novel-cover img {
+    /* ─── HEADSHOT ───────────────────────────────────── */
+    .about-photo img {
       width: 100%;
-      max-width: 360px;
+      max-width: 460px;
       display: block;
     }
 
-    /* ─── TEXT ───────────────────────────────────────── */
-    .novel-text {
+    /* ─── TEXT COLUMN ────────────────────────────────── */
+    .about-text {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
-      gap: 2.5rem;
+      gap: 3rem;
     }
 
-    .synopsis {
+    .about-bio {
       font-family: 'Modeco', sans-serif;
-      font-size: clamp(0.85rem, 1.2vw, 1.05rem);
-      line-height: 1.75;
+      font-size: clamp(0.9rem, 1.3vw, 1.15rem);
+      line-height: 1.8;
       letter-spacing: 0.04em;
       color: var(--chartreuse);
       opacity: 0.9;
     }
 
-    .order-btn {
-      display: inline-block;
-      font-family: 'Modeco', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--blue);
-      background: var(--chartreuse);
-      text-decoration: none;
-      padding: 0.85rem 2rem;
-      align-self: flex-start;
-      transition: opacity 0.2s;
+    .about-bio em {
+      font-style: italic;
     }
 
-    .order-btn:hover { opacity: 0.85; }
-
-    /* ─── REVIEWS ────────────────────────────────────── */
-    .novel-reviews {
-      padding: 4rem 0 0;
-    }
-
-    .reviews-label {
-      font-family: 'Modeco', sans-serif;
-      font-size: clamp(1.8rem, 3.2vw, 3.2rem);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--chartreuse);
-      padding-bottom: 2rem;
-      border-bottom: 1px solid rgba(209,255,102,0.15);
-      margin-bottom: 0;
-    }
-
-    .review {
-      padding: 2.5rem 0;
-      border-bottom: 1px solid rgba(209,255,102,0.15);
-      display: grid;
-      grid-template-columns: clamp(10rem, 25%, 18rem) 1fr;
-      gap: 0 4rem;
-      align-items: start;
-    }
-
-    .review-attribution {
+    .about-contact {
       display: flex;
       flex-direction: column;
-      gap: 0.3rem;
-      padding-top: 0.2rem;
+      gap: 0.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(209,255,102,0.15);
     }
 
-    .review-name {
-      font-family: 'Auromiya', serif;
-      font-size: clamp(1.2rem, 2.2vw, 2rem);
-      color: var(--chartreuse);
-      line-height: 1.1;
-      letter-spacing: 0.02em;
-    }
-
-    .review-affil {
+    .about-contact-label {
       font-family: 'Modeco', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.14em;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--chartreuse);
       opacity: 0.45;
     }
 
-    .review-quote {
+    .about-contact a {
       font-family: 'Modeco', sans-serif;
-      font-size: clamp(0.82rem, 1.1vw, 1rem);
-      line-height: 1.75;
-      letter-spacing: 0.04em;
+      font-size: clamp(0.8rem, 1.1vw, 1rem);
+      letter-spacing: 0.1em;
       color: var(--chartreuse);
+      text-decoration: none;
       opacity: 0.85;
+      transition: opacity 0.2s;
     }
+
+    .about-contact a:hover { opacity: 1; }
 
     /* ─── FOOTER ─────────────────────────────────────── */
     footer {
@@ -295,29 +227,30 @@
     .footer-social svg { width: 15px; height: 15px; fill: var(--chartreuse); }
 
     /* ─── RESPONSIVE ─────────────────────────────────── */
+
+    /* Tablet — stack grid, reduce padding */
     @media (max-width: 768px) {
       header { padding: 2rem 2.5rem 1.5rem; }
       main { padding: 0 2.5rem 5rem; }
       footer { padding: 1.5rem 2.5rem; }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding-top: 3.5rem;
+      }
+
+      .about-photo img { max-width: 340px; }
     }
 
+    /* Mobile — stack header, tighten padding */
     @media (max-width: 700px) {
       header { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 2rem 1.5rem 1.5rem; }
       .header-right { align-items: flex-start; }
       main { padding: 0 1.5rem 4rem; }
       nav { gap: 1.5rem; }
 
-      .novel-body {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-
-      .novel-cover img { max-width: 240px; }
-
-      .review {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
+      .about-photo img { max-width: 260px; }
 
       footer { padding: 1.5rem; grid-template-columns: 1fr; gap: 1rem; }
     }
@@ -345,115 +278,29 @@
     </div>
     <nav>
       <a href="index.html">Campaigns</a>
-      <a href="my-novel.html" class="active">My novel</a>
-      <a href="about.html">About me</a>
+      <a href="my-novel.html">My novel</a>
+      <a href="about.html" class="active">About me</a>
     </nav>
   </div>
 </header>
 
 <main>
+  <div class="about-grid">
 
-  <!-- ─── Hero ────────────────────────────────────────── -->
-  <section class="novel-hero">
-    <h1 class="novel-title">The King of Video Poker</h1>
-    <p class="novel-subtitle">A Novel</p>
-  </section>
-
-  <!-- ─── Cover + Synopsis ─────────────────────────────── -->
-  <section class="novel-body">
-    <div class="novel-cover">
-      <img src="images/book-cover.jpg" alt="The King of Video Poker — book cover">
+    <div class="about-photo">
+      <img src="images/headshot.jpg" alt="Paolo Iacovelli">
     </div>
-    <div class="novel-text">
-      <p class="synopsis">Arnold Palmer has just died and The King of Video Poker is about to lose everything he loves. In Paolo Iacovelli's debut novel, we follow a nameless narrator. He is a normative, upper-middle-class American who commutes to Las Vegas to play high-stakes video poker. He seems to have everything: a son, a loving wife, a beautiful home in Mesquite, Nevada. But aimless and depressed, he must face emptiness in both spirit and body. His relationships deteriorate and our narrator is left attempting the deplorable to fill the void. He latches onto an excessive road trip as he fixates on Arnold Palmer's death, trying to chase a high that will never come. Falling deep into the throes of darkness, he finds himself planning one of the greatest atrocities the U.S. has ever seen.</p>
-      <a class="order-btn" href="https://www.amazon.com/King-Video-Poker-Paolo-Iacovelli/dp/1960988085" target="_blank" rel="noopener">Order Now</a>
-    </div>
-  </section>
 
-  <!-- ─── Reviews ──────────────────────────────────────── -->
-  <section class="novel-reviews">
-    <p class="reviews-label">Praise</p>
+    <div class="about-text">
+      <p class="about-bio">The first story I ever wrote was about my grandmother growing up inside of an Italian traveling carnival. It was nonfiction. She used to bring my brothers and me to visit with her during the summer. We piled into caravans with our distant cousins, skipped the line to ride the <em>calcinculo</em> a dozen times, and listened to my grandmother reminisce over late night dinners while the new generation of carnies packed up the rides. The immersive chaos ignited something in her. I understand now that it was her happy place. Writing is mine.</p>
 
-    <div class="review">
-      <div class="review-attribution">
-        <span class="review-name">Wall Street Journal</span>
+      <div class="about-contact">
+        <span class="about-contact-label">Contact</span>
+        <a href="mailto:paoloiacovelli1@gmail.com">paoloiacovelli1@gmail.com</a>
       </div>
-      <p class="review-quote">"In flat, anhedonic prose reminiscent of the fiction of Tao Lin, Mr. Iacovelli charts the narrator's shambling descent toward an act of unfathomable violence (. . .) pushing us to contemplate the motives of something we'd rather not think about, and to recognize the human impulses behind it, is one of literature's most valuable roles."</p>
     </div>
 
-    <div class="review">
-      <div class="review-attribution">
-        <span class="review-name">Tony Tulathimutte</span>
-        <span class="review-affil">Author of Private Citizens &amp; Rejection</span>
-      </div>
-      <p class="review-quote">"If you don't know what this book is about, don't look it up, just read it—it's one of the most horrifyingly effective twists I've read in years. But even if you do, The King of Video Poker is a masterful character study, a thorough examination of the anhedonia and banality at the root of freelance American violence. Paolo Iacovelli is compassionate, menacing, and bleakly (BLEAKLY) funny—a writer you can bet on."</p>
-    </div>
-
-    <div class="review">
-      <div class="review-attribution">
-        <span class="review-name">Megan Nolan</span>
-        <span class="review-affil">Author of Ordinary Human Failings</span>
-      </div>
-      <p class="review-quote">"Seismic stone cold stunner debut."</p>
-    </div>
-
-    <div class="review">
-      <div class="review-attribution">
-        <span class="review-name">Nico Walker</span>
-        <span class="review-affil">Author of Cherry</span>
-      </div>
-      <p class="review-quote">"The story made me want to kill myself, but I mean that in the best way it could possibly be meant."</p>
-    </div>
-
-    <div class="review">
-      <div class="review-attribution">
-        <span class="review-name">Sam Lipsyte</span>
-        <span class="review-affil">Author of Venus Drive &amp; No One Left to Come Looking for You</span>
-      </div>
-      <p class="review-quote">"Taut and full of menace, The King of Video Poker captures our particular American sickness with disturbing precision and dark momentum."</p>
-    </div>
-
-    <div class="review">
-      <div class="review-attribution">
-        <span class="review-name">Binnie Kirshenbaum</span>
-        <span class="review-affil">Author of Rabbits for Food</span>
-      </div>
-      <p class="review-quote">"A profound deep dive into the human condition and unnervingly emblematic of 21st Century America."</p>
-    </div>
-
-    <div class="review">
-      <div class="review-attribution">
-        <span class="review-name">Lauren Grodstein</span>
-        <span class="review-affil">Author of We Must Not Think of Ourselves</span>
-      </div>
-      <p class="review-quote">"A mesmerizing account of one man's descent into nihilism, Paolo Iacovelli's The King of Video Poker is unlike any novel I've read before."</p>
-    </div>
-
-    <div class="review">
-      <div class="review-attribution">
-        <span class="review-name">Alexander Boldizar</span>
-        <span class="review-affil">Author of The Man Who Saw Seconds</span>
-      </div>
-      <p class="review-quote">"…what Dostoevsky's Raskolnikov did for Tsarist Saint Petersburg or Fassbinder's Franz Biberkopf for interbellum Berlin."</p>
-    </div>
-
-    <div class="review">
-      <div class="review-attribution">
-        <span class="review-name">Kelly Cutrone</span>
-        <span class="review-affil">Founder, People's Revolution</span>
-      </div>
-      <p class="review-quote">"A bold undertaking and brilliantly executed."</p>
-    </div>
-
-    <div class="review">
-      <div class="review-attribution">
-        <span class="review-name">Publishers Weekly</span>
-      </div>
-      <p class="review-quote">"Iacovelli imbues the narrator's rants with an uncompromising precision; to him, Burberry perfume smells like 'rotten fruit tossed in a blender with noxious chemicals.'"</p>
-    </div>
-
-  </section>
-
+  </div>
 </main>
 
 <footer>
