@@ -10,12 +10,13 @@
       src: url('fonts/Catallina.otf') format('opentype');
     }
     @font-face {
-      font-family: 'Auromiya';
-      src: url('fonts/auromiya.regular.ttf') format('truetype');
+      font-family: 'MostraNuova';
+      src: url('fonts/MostraNuova-Bold.ttf') format('truetype');
+      font-weight: normal;
     }
     @font-face {
-      font-family: 'Modeco';
-      src: url('fonts/ModecoTrial-Regular.otf') format('opentype');
+      font-family: 'TenorSans';
+      src: url('fonts/TenorSans-Regular.ttf') format('truetype');
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,7 +32,7 @@
     body {
       background: #fff;
       color: var(--blue);
-      font-family: 'Modeco', sans-serif;
+      font-family: 'TenorSans', sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -65,7 +66,7 @@
     }
 
     .logo-sub {
-      font-family: 'Modeco', sans-serif;
+      font-family: 'TenorSans', sans-serif;
       font-size: clamp(0.65rem, 1.1vw, 0.9rem);
       color: var(--orange);
       letter-spacing: 0.18em;
@@ -96,7 +97,7 @@
     nav { display: flex; gap: 2.5rem; }
 
     nav a {
-      font-family: 'Modeco', sans-serif;
+      font-family: 'TenorSans', sans-serif;
       font-size: clamp(0.7rem, 1vw, 0.9rem);
       color: var(--chartreuse);
       text-decoration: none;
@@ -146,16 +147,17 @@
     }
 
     .project-headline {
-      font-family: 'Auromiya', serif;
+      font-family: 'MostraNuova', serif;
+      font-weight: normal;
+      font-variant: small-caps;
       font-size: clamp(2rem, 5vw, 5.5rem);
       color: var(--blue);
       line-height: 1.05;
       letter-spacing: 0.02em;
-      text-transform: uppercase;
     }
 
     .tagline-copy {
-      font-family: 'Modeco', sans-serif;
+      font-family: 'TenorSans', sans-serif;
       font-size: clamp(0.85rem, 1.2vw, 1rem);
       line-height: 1.85;
       letter-spacing: 0.04em;
@@ -172,7 +174,7 @@
     }
 
     .section-label {
-      font-family: 'Modeco', sans-serif;
+      font-family: 'TenorSans', sans-serif;
       font-size: clamp(1rem, 1.5vw, 1.3rem);
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -209,7 +211,7 @@
     .img-text-pair.img-left .pair-image { order: -1; }
 
     .pair-copy {
-      font-family: 'Modeco', sans-serif;
+      font-family: 'TenorSans', sans-serif;
       font-size: clamp(0.82rem, 1.1vw, 0.95rem);
       line-height: 1.85;
       letter-spacing: 0.04em;
@@ -267,7 +269,7 @@
     .footer-left { display: flex; flex-direction: column; gap: 0.4rem; }
 
     footer p {
-      font-family: 'Modeco', sans-serif;
+      font-family: 'TenorSans', sans-serif;
       font-size: 0.7rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
