@@ -63,14 +63,21 @@
       color: var(--orange);
       letter-spacing: 0.02em;
       white-space: nowrap;
+      font-feature-settings: "liga" 1;
+    }
+
+    .ll-lig {
+      font-feature-settings: "liga" 1, "dlig" 1;
     }
 
     .logo-sub {
       font-family: 'TenorSans', sans-serif;
-      font-size: clamp(0.65rem, 1.1vw, 0.9rem);
-      color: var(--orange);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      font-size: clamp(1.016rem, 1.72vw, 1.406rem);
+      color: #D0DBFF;
+      letter-spacing: 0.234em;
+      display: inline-block;
+      transform: scaleX(1.1);
+      transform-origin: left center;
       margin-top: 0.45rem;
     }
 
@@ -375,7 +382,7 @@
 
 <header>
   <a class="logo" href="index.html">
-    <span class="logo-name">PAolO iAcovelli</span>
+    <span class="logo-name">PAolO iAcove<span class="ll-lig">LL</span>i</span>
     <span class="logo-sub">(copy)writer</span>
   </a>
   <div class="header-right">

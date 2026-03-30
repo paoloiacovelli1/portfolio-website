@@ -63,6 +63,7 @@
       line-height: 1;
       display: block;
       letter-spacing: 0.02em;
+      font-feature-settings: "liga" 1;
     }
 
     #letter-stage span {
@@ -71,10 +72,11 @@
 
     #intro-sub {
       font-family: 'TenorSans', sans-serif;
-      font-size: clamp(0.7rem, 1.3vw, 1rem);
-      color: var(--orange);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      font-size: clamp(1.094rem, 2.031vw, 1.563rem);
+      color: #D0DBFF;
+      letter-spacing: 0.234em;
+      transform: scaleX(1.1);
+      transform-origin: left center;
       margin-top: 0.55em;
       opacity: 0;
       transform: translateY(8px);
@@ -113,14 +115,21 @@
       color: var(--orange);
       letter-spacing: 0.02em;
       white-space: nowrap;
+      font-feature-settings: "liga" 1;
+    }
+
+    .ll-lig {
+      font-feature-settings: "liga" 1, "dlig" 1;
     }
 
     .logo-sub {
       font-family: 'TenorSans', sans-serif;
-      font-size: clamp(0.65rem, 1.1vw, 0.9rem);
-      color: var(--orange);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      font-size: clamp(1.016rem, 1.72vw, 1.406rem);
+      color: #D0DBFF;
+      letter-spacing: 0.234em;
+      display: inline-block;
+      transform: scaleX(1.1);
+      transform-origin: left center;
       margin-top: 0.45rem;
     }
 
@@ -353,7 +362,7 @@
 <!-- ─── PERSISTENT PAGE ───────────────────────────────── -->
 <header id="main-header">
   <div class="logo">
-    <span class="logo-name">PAolO iAcovelli</span>
+    <span class="logo-name">PAolO iAcove<span class="ll-lig">LL</span>i</span>
     <span class="logo-sub">(copy)writer</span>
   </div>
   <div class="header-right">
@@ -391,10 +400,10 @@
       </a>
     </li>
     <li>
-      <a class="project-item" href="#">
+      <a class="project-item" href="ncpg.html">
         <span class="project-number">02</span>
         <div class="project-body">
-          <span class="project-title">Waymo</span>
+          <span class="project-title">NCPG</span>
           <span class="project-meta">&nbsp;</span>
         </div>
         <span class="project-arrow">&#8599;</span>
@@ -404,17 +413,17 @@
       <a class="project-item" href="#">
         <span class="project-number">03</span>
         <div class="project-body">
-          <span class="project-title">Ceremonia</span>
+          <span class="project-title">Waymo</span>
           <span class="project-meta">&nbsp;</span>
         </div>
         <span class="project-arrow">&#8599;</span>
       </a>
     </li>
     <li>
-      <a class="project-item" href="ncpg.html">
+      <a class="project-item" href="#">
         <span class="project-number">04</span>
         <div class="project-body">
-          <span class="project-title">NCPG</span>
+          <span class="project-title">Ceremonia</span>
           <span class="project-meta">&nbsp;</span>
         </div>
         <span class="project-arrow">&#8599;</span>
@@ -459,10 +468,10 @@
   'use strict';
 
   // ── Config ─────────────────────────────────────────────────────────────────
-  // "ciAo" → "PAolO iAcovelli"
-  // TARGET indices: P=0 A=1 o=2 l=3 O=4 ' '=5 i=6 A=7 c=8 o=9 v=10 e=11 l=12 l=13 i=14
+  // "ciAo" → "PAolO iAcoveLLi"
+  // TARGET indices: P=0 A=1 o=2 l=3 O=4 ' '=5 i=6 A=7 c=8 o=9 v=10 e=11 L=12 L=13 i=14
   const SOURCE = 'ciAo';
-  const TARGET = 'PAolO iAcovelli';
+  const TARGET = 'PAolO iAcoveLLi';
   let stageFS = '40px'; // set from computed style in phase1 after fonts load
 
   // SOURCE "ciAo":  c=0  i=1  A=2  o=3
@@ -537,10 +546,43 @@
     // so ghost spans match exactly at every viewport width
     stageFS = getComputedStyle($stage).fontSize;
 
-    // ── Measure target layout (PAolO iAcovelli, invisible, centered) ──
+    // ── Size intro-sub to match the logo-sub/logo-name ratio at this viewport ──
+    // Both use different clamp() curves so the ratio drifts; computing it from
+    // actual px values guarantees they stay proportional at every breakpoint.
+    {
+      const stagePxNow   = parseFloat(stageFS);
+      const logoNamePx   = parseFloat(getComputedStyle($logo.querySelector('.logo-name')).fontSize);
+      const logoSubPx    = parseFloat(getComputedStyle($logo.querySelector('.logo-sub')).fontSize);
+      $sub.style.fontSize = (stagePxNow * logoSubPx / logoNamePx) + 'px';
+    }
+
+    // ── Measure target layout with LL ligature already in place ──
+    // The dlig LL glyph is a different width than L+L, which — because the text
+    // is centered — shifts ALL character positions. We must measure after the
+    // merge so every ghost lands on its true final position.
     fillStage(TARGET, false);
+    {
+      const tspans = Array.from($stage.children);
+      const tempLL = document.createElement('span');
+      tempLL.textContent = 'LL';
+      tempLL.style.display = 'inline-block';
+      tempLL.style.fontFeatureSettings = '"liga" 1, "dlig" 1';
+      tempLL.style.letterSpacing = '0';
+      $stage.insertBefore(tempLL, tspans[12]);
+      tspans[12].remove();
+      tspans[13].remove();
+    }
     await raf2();
-    const tgtRects = stageRects();
+    // Stage now has 14 children. Reconstruct the 15-slot tgtRects array:
+    //   children[0..11]  → tgtRects[0..11]
+    //   children[12]     → tgtRects[12]  (LL left edge)
+    //   (index 13 unused — insert placeholder equal to [12])
+    //   children[13]     → tgtRects[14]  (final 'i')
+    const tgtRects = Array.from($stage.children).map(s => {
+      const r = s.getBoundingClientRect();
+      return { left: r.left, top: r.top };
+    });
+    tgtRects.splice(13, 0, tgtRects[12]); // placeholder for unused index 13
 
     // ── Measure ciAo natural layout (invisible, centered) ──
     fillStage(SOURCE, false);
@@ -589,12 +631,37 @@
 
     // ── Fill in remaining TARGET letters one-by-one left-to-right ──
     // Skip: space=5, i=6 (from ciAo), A=7 (from ciAo), c=8 (mover), o=9 (mover)
-    const placed = new Set([5, 6, 7, 8, 9]);
+    // Also skip L=13 — handled together with L=12 as a single LL ghost so the
+    // dlig ligature is visible as soon as the pair appears.
+    const placed = new Set([5, 6, 7, 8, 9, 13]);
     const fillGhosts = [];
     TARGET.split('').forEach((ch, i) => {
       if (placed.has(i)) return;
-      const ghost = makeGhost(ch, tgtRects[i], 0);
-      document.body.appendChild(ghost);
+      let ghost;
+      if (i === 12) {
+        // Combined LL ghost with dlig so the ligature shows during the fill
+        ghost = document.createElement('span');
+        ghost.textContent = 'LL';
+        ghost.style.cssText = [
+          'position:fixed',
+          `left:${tgtRects[12].left}px`,
+          `top:${tgtRects[12].top}px`,
+          "font-family:'Catallina',serif",
+          `font-size:${stageFS}`,
+          'color:#FFA47A',
+          'white-space:nowrap',
+          'line-height:1',
+          'letter-spacing:0',
+          'font-feature-settings:"liga" 1,"dlig" 1',
+          'pointer-events:none',
+          'z-index:200',
+          'opacity:0',
+        ].join(';');
+        document.body.appendChild(ghost);
+      } else {
+        ghost = makeGhost(ch, tgtRects[i], 0);
+        document.body.appendChild(ghost);
+      }
       fillGhosts.push(ghost);
     });
 
@@ -618,6 +685,23 @@
     $stage.style.visibility = 'visible';
     fillStage(TARGET, true);
 
+    // Merge the two L spans (indices 12 & 13) so the LL dlig ligature shows in
+    // the static stage before and during the phase-2 fly.
+    // display:inline overrides the #letter-stage span { inline-block } rule —
+    // inline-block creates its own formatting context which blocks ligature
+    // formation within the span; inline does not.
+    (function () {
+      const spans = Array.from($stage.children);
+      const llSpan = document.createElement('span');
+      llSpan.textContent = 'LL';
+      llSpan.style.display = 'inline-block';
+      llSpan.style.fontFeatureSettings = '"liga" 1, "dlig" 1';
+      llSpan.style.letterSpacing = '0';
+      $stage.insertBefore(llSpan, spans[12]);
+      spans[12].remove();
+      spans[13].remove();
+    })();
+
     // Fade in sublogo
     await wait(160);
     $sub.classList.add('show');
@@ -639,9 +723,16 @@
     const fromRect = $center.getBoundingClientRect();
     const toRect   = $logo.getBoundingClientRect();
 
-    const stagePx = parseFloat(getComputedStyle($stage).fontSize);
-    const logoPx  = parseFloat(getComputedStyle($logo.querySelector('.logo-name')).fontSize);
-    const scale   = logoPx / stagePx;
+    const stagePx    = parseFloat(getComputedStyle($stage).fontSize);
+    const logoPx     = parseFloat(getComputedStyle($logo.querySelector('.logo-name')).fontSize);
+    const scale      = logoPx / stagePx;
+
+    // Set intro-sub to the exact size that lands on logo-sub after scaling.
+    // Formula: fontSize × scale = logoSubPx  →  fontSize = logoSubPx / scale
+    // This is guaranteed correct regardless of any clamp() drift between the
+    // two elements' CSS curves.
+    const logoSubPx  = parseFloat(getComputedStyle($logo.querySelector('.logo-sub')).fontSize);
+    $sub.style.fontSize = (logoSubPx / scale) + 'px';
 
     // Pin intro-center at its current screen coords
     $center.style.position      = 'fixed';
