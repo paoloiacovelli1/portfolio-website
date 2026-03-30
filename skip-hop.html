@@ -215,21 +215,12 @@
       display: block;
     }
 
+    /* ─── SOCIAL CENTERED (middle ~50% on desktop) ───── */
+    .social-centered {
+      padding: 0 25%;
+    }
+
     /* ─── TACTIC LAYOUT ──────────────────────────────── */
-    .tactic-upper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-      margin-top: 3rem;
-    }
-
-    .tactic-left {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
     .tactic-copy {
       font-family: 'TenorSans', sans-serif;
       font-size: clamp(0.85rem, 1.2vw, 1rem);
@@ -237,22 +228,7 @@
       letter-spacing: 0.04em;
       color: var(--blue);
       opacity: 0.85;
-    }
-
-    .tactic-left img,
-    .tactic-right img {
-      width: 100%;
-      display: block;
-    }
-
-    .tactic-right {
-      display: flex;
-      align-items: stretch;
-    }
-
-    .tactic-right img {
-      object-fit: cover;
-      height: 100%;
+      margin-top: 3rem;
     }
 
     .tactic-full {
@@ -365,20 +341,11 @@
         padding: 2.5rem 0 3rem;
       }
 
+      .social-centered { padding: 0; }
+
       .two-col-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
-      }
-
-      /* Tactic: copy → tactic1 → tactic2 → tactic3 */
-      .tactic-upper {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .tactic-right img {
-        height: auto;
-        object-fit: unset;
       }
 
       .section-rule { margin-top: 3rem; }
@@ -472,10 +439,12 @@
   <section class="project-section">
     <p class="section-label">Social</p>
 
-    <!-- 11. social1 left, social2 right -->
-    <div class="two-col-grid">
-      <img src="campaigns/skip-hop/social1.png" alt="Skip Hop social — execution 1">
-      <img src="campaigns/skip-hop/social2.png" alt="Skip Hop social — execution 2">
+    <!-- 11. social1 left, social2 right — centered middle ~50% on desktop -->
+    <div class="social-centered">
+      <div class="two-col-grid">
+        <img src="campaigns/skip-hop/social1.png" alt="Skip Hop social — execution 1">
+        <img src="campaigns/skip-hop/social2.png" alt="Skip Hop social — execution 2">
+      </div>
     </div>
   </section>
 
@@ -485,26 +454,18 @@
   <section class="project-section">
     <p class="section-label">Tactic</p>
 
-    <!--
-      Desktop: [copy + tactic1 stacked] | [tactic2]
-               [tactic3 — full width        ]
-      Mobile:  copy → tactic1 → tactic2 → tactic3
-    -->
-    <div class="tactic-upper">
-      <!-- Left: copy text + tactic1 stacked -->
-      <div class="tactic-left">
-        <p class="tactic-copy">We partnered with Vogue's <em>In The Bag</em> series to launch the #inmydiaperbag challenge — inviting celebrities and everyday parents to share what's in their diaper bag. Because what you carry says as much about who you are as it ever did.</p>
-        <img src="campaigns/skip-hop/tactic1.png" alt="Skip Hop tactic — execution 1">
-      </div>
-      <!-- Right: tactic2 -->
-      <div class="tactic-right">
-        <img src="campaigns/skip-hop/tactic2.png" alt="Skip Hop tactic — execution 2">
-      </div>
-    </div>
+    <!-- copy — full width -->
+    <p class="tactic-copy">We partnered with Vogue's <em>In The Bag</em> series to launch the #inmydiaperbag challenge — inviting celebrities and everyday parents to share what's in their diaper bag. Because what you carry says as much about who you are as it ever did.</p>
 
-    <!-- tactic3 — full width below -->
+    <!-- tactic3 — full width -->
     <div class="tactic-full">
       <img src="campaigns/skip-hop/tactic3.png" alt="Skip Hop tactic — execution 3">
+    </div>
+
+    <!-- tactic1 + tactic2 — side by side -->
+    <div class="two-col-grid">
+      <img src="campaigns/skip-hop/tactic1.png" alt="Skip Hop tactic — execution 1">
+      <img src="campaigns/skip-hop/tactic2.png" alt="Skip Hop tactic — execution 2">
     </div>
   </section>
 
