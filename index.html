@@ -10,12 +10,13 @@
       src: url('fonts/Catallina.otf') format('opentype');
     }
     @font-face {
-      font-family: 'Auromiya';
-      src: url('fonts/auromiya.regular.ttf') format('truetype');
+      font-family: 'MostraNuova';
+      src: url('fonts/MostraNuova-Bold.ttf') format('truetype');
+      font-weight: normal;
     }
     @font-face {
-      font-family: 'Modeco';
-      src: url('fonts/ModecoTrial-Regular.otf') format('opentype');
+      font-family: 'TenorSans';
+      src: url('fonts/TenorSans-Regular.ttf') format('truetype');
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,7 +32,7 @@
     body {
       background: var(--blue);
       color: var(--chartreuse);
-      font-family: 'Modeco', sans-serif;
+      font-family: 'TenorSans', sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -62,6 +63,7 @@
       line-height: 1;
       display: block;
       letter-spacing: 0.02em;
+      font-feature-settings: "liga" 1;
     }
 
     #letter-stage span {
@@ -69,11 +71,12 @@
     }
 
     #intro-sub {
-      font-family: 'Modeco', sans-serif;
-      font-size: clamp(0.7rem, 1.3vw, 1rem);
-      color: var(--orange);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      font-family: 'TenorSans', sans-serif;
+      font-size: clamp(1.094rem, 2.031vw, 1.563rem);
+      color: #D0DBFF;
+      letter-spacing: 0.234em;
+      transform: scaleX(1.1);
+      transform-origin: left center;
       margin-top: 0.55em;
       opacity: 0;
       transform: translateY(8px);
@@ -112,14 +115,21 @@
       color: var(--orange);
       letter-spacing: 0.02em;
       white-space: nowrap;
+      font-feature-settings: "liga" 1;
+    }
+
+    .ll-lig {
+      font-feature-settings: "liga" 1, "dlig" 1;
     }
 
     .logo-sub {
-      font-family: 'Modeco', sans-serif;
-      font-size: clamp(0.65rem, 1.1vw, 0.9rem);
-      color: var(--orange);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      font-family: 'TenorSans', sans-serif;
+      font-size: clamp(1.016rem, 1.72vw, 1.406rem);
+      color: #D0DBFF;
+      letter-spacing: 0.234em;
+      display: inline-block;
+      transform: scaleX(1.1);
+      transform-origin: left center;
       margin-top: 0.45rem;
     }
 
@@ -152,7 +162,7 @@
     nav { display: flex; gap: 2.5rem; }
 
     nav a {
-      font-family: 'Modeco', sans-serif;
+      font-family: 'TenorSans', sans-serif;
       font-size: clamp(0.7rem, 1vw, 0.9rem);
       color: var(--chartreuse);
       text-decoration: none;
@@ -186,7 +196,7 @@
     main.show { opacity: 1; }
 
     .section-label {
-      font-family: 'Modeco', sans-serif;
+      font-family: 'TenorSans', sans-serif;
       font-size: 0.7rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -213,7 +223,7 @@
     .project-item:hover .project-arrow { transform: translateX(6px); }
 
     .project-number {
-      font-family: 'Modeco', sans-serif;
+      font-family: 'TenorSans', sans-serif;
       font-size: 0.75rem;
       letter-spacing: 0.1em;
       color: var(--chartreuse);
@@ -224,7 +234,9 @@
     .project-body { display: flex; flex-direction: column; gap: 0.4rem; }
 
     .project-title {
-      font-family: 'Auromiya', serif;
+      font-family: 'MostraNuova', serif;
+      font-weight: normal;
+      font-variant: small-caps;
       font-size: clamp(2rem, 5vw, 4.5rem);
       color: var(--chartreuse);
       line-height: 1;
@@ -233,7 +245,7 @@
     }
 
     .project-meta {
-      font-family: 'Modeco', sans-serif;
+      font-family: 'TenorSans', sans-serif;
       font-size: 0.78rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -265,7 +277,7 @@
     .footer-left { display: flex; flex-direction: column; gap: 0.4rem; }
 
     footer p {
-      font-family: 'Modeco', sans-serif;
+      font-family: 'TenorSans', sans-serif;
       font-size: 0.7rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -284,6 +296,8 @@
 
     .footer-social a:hover { opacity: 0.7; }
     .footer-social svg { width: 15px; height: 15px; fill: var(--chartreuse); }
+
+    .footer-location { text-align: right; }
 
     /* ─── RESPONSIVE ─────────────────────────────────── */
 
@@ -305,6 +319,34 @@
       .project-arrow { display: none; }
       nav { gap: 1.5rem; }
     }
+
+    /* ─── BACK TO TOP ────────────────────────────────── */
+    #back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--chartreuse);
+      color: var(--blue);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 50;
+      pointer-events: none;
+    }
+    #back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    #back-to-top:hover { opacity: 0.8; }
   </style>
 </head>
 <body>
@@ -320,17 +362,17 @@
 <!-- ─── PERSISTENT PAGE ───────────────────────────────── -->
 <header id="main-header">
   <div class="logo">
-    <span class="logo-name">PAolO iAcovelli</span>
+    <span class="logo-name">PAolO iAcove<span class="ll-lig">LL</span>i</span>
     <span class="logo-sub">(copy)writer</span>
   </div>
   <div class="header-right">
     <div class="social-links">
-      <a href="#" aria-label="Instagram">
+      <a href="https://www.instagram.com/paoloadrianiacovelli/" target="_blank" rel="noopener" aria-label="Instagram">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
         </svg>
       </a>
-      <a href="#" aria-label="LinkedIn">
+      <a href="https://www.linkedin.com/in/paolo-iacovelli-28900a164/" target="_blank" rel="noopener" aria-label="LinkedIn">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
         </svg>
@@ -338,17 +380,17 @@
     </div>
     <nav>
       <a href="#">Campaigns</a>
-      <a href="#">My novel</a>
-      <a href="#">About me</a>
+      <a href="my-novel.html">My novel</a>
+      <a href="about.html">About me</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <p class="section-label">Selected campaigns</p>
+  <p class="section-label">Campaigns</p>
   <ul class="project-list">
     <li>
-      <a class="project-item" href="#">
+      <a class="project-item" href="skip-hop.html">
         <span class="project-number">01</span>
         <div class="project-body">
           <span class="project-title">Skip Hop</span>
@@ -358,10 +400,10 @@
       </a>
     </li>
     <li>
-      <a class="project-item" href="#">
+      <a class="project-item" href="ncpg.html">
         <span class="project-number">02</span>
         <div class="project-body">
-          <span class="project-title">Waymo</span>
+          <span class="project-title">NCPG</span>
           <span class="project-meta">&nbsp;</span>
         </div>
         <span class="project-arrow">&#8599;</span>
@@ -371,7 +413,7 @@
       <a class="project-item" href="#">
         <span class="project-number">03</span>
         <div class="project-body">
-          <span class="project-title">Ceremonia</span>
+          <span class="project-title">Waymo</span>
           <span class="project-meta">&nbsp;</span>
         </div>
         <span class="project-arrow">&#8599;</span>
@@ -381,7 +423,7 @@
       <a class="project-item" href="#">
         <span class="project-number">04</span>
         <div class="project-body">
-          <span class="project-title">NCPG</span>
+          <span class="project-title">Ceremonia</span>
           <span class="project-meta">&nbsp;</span>
         </div>
         <span class="project-arrow">&#8599;</span>
@@ -403,19 +445,21 @@
 <footer>
   <div class="footer-left">
     <p>&copy; Paolo Iacovelli</p>
-    <p>(copy)writer &mdash; New York</p>
   </div>
   <div class="footer-social">
-    <a href="#" aria-label="Instagram">
+    <a href="https://www.instagram.com/paoloadrianiacovelli/" target="_blank" rel="noopener" aria-label="Instagram">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
       </svg>
     </a>
-    <a href="#" aria-label="LinkedIn">
+    <a href="https://www.linkedin.com/in/paolo-iacovelli-28900a164/" target="_blank" rel="noopener" aria-label="LinkedIn">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
       </svg>
     </a>
+  </div>
+  <div class="footer-location">
+    <p>(copy)writer &mdash; New York</p>
   </div>
 </footer>
 
@@ -424,10 +468,10 @@
   'use strict';
 
   // ── Config ─────────────────────────────────────────────────────────────────
-  // "ciAo" → "PAolO iAcovelli"
-  // TARGET indices: P=0 A=1 o=2 l=3 O=4 ' '=5 i=6 A=7 c=8 o=9 v=10 e=11 l=12 l=13 i=14
+  // "ciAo" → "PAolO iAcoveLLi"
+  // TARGET indices: P=0 A=1 o=2 l=3 O=4 ' '=5 i=6 A=7 c=8 o=9 v=10 e=11 L=12 L=13 i=14
   const SOURCE = 'ciAo';
-  const TARGET = 'PAolO iAcovelli';
+  const TARGET = 'PAolO iAcoveLLi';
   let stageFS = '40px'; // set from computed style in phase1 after fonts load
 
   // SOURCE "ciAo":  c=0  i=1  A=2  o=3
@@ -502,10 +546,43 @@
     // so ghost spans match exactly at every viewport width
     stageFS = getComputedStyle($stage).fontSize;
 
-    // ── Measure target layout (PAolO iAcovelli, invisible, centered) ──
+    // ── Size intro-sub to match the logo-sub/logo-name ratio at this viewport ──
+    // Both use different clamp() curves so the ratio drifts; computing it from
+    // actual px values guarantees they stay proportional at every breakpoint.
+    {
+      const stagePxNow   = parseFloat(stageFS);
+      const logoNamePx   = parseFloat(getComputedStyle($logo.querySelector('.logo-name')).fontSize);
+      const logoSubPx    = parseFloat(getComputedStyle($logo.querySelector('.logo-sub')).fontSize);
+      $sub.style.fontSize = (stagePxNow * logoSubPx / logoNamePx) + 'px';
+    }
+
+    // ── Measure target layout with LL ligature already in place ──
+    // The dlig LL glyph is a different width than L+L, which — because the text
+    // is centered — shifts ALL character positions. We must measure after the
+    // merge so every ghost lands on its true final position.
     fillStage(TARGET, false);
+    {
+      const tspans = Array.from($stage.children);
+      const tempLL = document.createElement('span');
+      tempLL.textContent = 'LL';
+      tempLL.style.display = 'inline-block';
+      tempLL.style.fontFeatureSettings = '"liga" 1, "dlig" 1';
+      tempLL.style.letterSpacing = '0';
+      $stage.insertBefore(tempLL, tspans[12]);
+      tspans[12].remove();
+      tspans[13].remove();
+    }
     await raf2();
-    const tgtRects = stageRects();
+    // Stage now has 14 children. Reconstruct the 15-slot tgtRects array:
+    //   children[0..11]  → tgtRects[0..11]
+    //   children[12]     → tgtRects[12]  (LL left edge)
+    //   (index 13 unused — insert placeholder equal to [12])
+    //   children[13]     → tgtRects[14]  (final 'i')
+    const tgtRects = Array.from($stage.children).map(s => {
+      const r = s.getBoundingClientRect();
+      return { left: r.left, top: r.top };
+    });
+    tgtRects.splice(13, 0, tgtRects[12]); // placeholder for unused index 13
 
     // ── Measure ciAo natural layout (invisible, centered) ──
     fillStage(SOURCE, false);
@@ -554,12 +631,37 @@
 
     // ── Fill in remaining TARGET letters one-by-one left-to-right ──
     // Skip: space=5, i=6 (from ciAo), A=7 (from ciAo), c=8 (mover), o=9 (mover)
-    const placed = new Set([5, 6, 7, 8, 9]);
+    // Also skip L=13 — handled together with L=12 as a single LL ghost so the
+    // dlig ligature is visible as soon as the pair appears.
+    const placed = new Set([5, 6, 7, 8, 9, 13]);
     const fillGhosts = [];
     TARGET.split('').forEach((ch, i) => {
       if (placed.has(i)) return;
-      const ghost = makeGhost(ch, tgtRects[i], 0);
-      document.body.appendChild(ghost);
+      let ghost;
+      if (i === 12) {
+        // Combined LL ghost with dlig so the ligature shows during the fill
+        ghost = document.createElement('span');
+        ghost.textContent = 'LL';
+        ghost.style.cssText = [
+          'position:fixed',
+          `left:${tgtRects[12].left}px`,
+          `top:${tgtRects[12].top}px`,
+          "font-family:'Catallina',serif",
+          `font-size:${stageFS}`,
+          'color:#FFA47A',
+          'white-space:nowrap',
+          'line-height:1',
+          'letter-spacing:0',
+          'font-feature-settings:"liga" 1,"dlig" 1',
+          'pointer-events:none',
+          'z-index:200',
+          'opacity:0',
+        ].join(';');
+        document.body.appendChild(ghost);
+      } else {
+        ghost = makeGhost(ch, tgtRects[i], 0);
+        document.body.appendChild(ghost);
+      }
       fillGhosts.push(ghost);
     });
 
@@ -583,6 +685,23 @@
     $stage.style.visibility = 'visible';
     fillStage(TARGET, true);
 
+    // Merge the two L spans (indices 12 & 13) so the LL dlig ligature shows in
+    // the static stage before and during the phase-2 fly.
+    // display:inline overrides the #letter-stage span { inline-block } rule —
+    // inline-block creates its own formatting context which blocks ligature
+    // formation within the span; inline does not.
+    (function () {
+      const spans = Array.from($stage.children);
+      const llSpan = document.createElement('span');
+      llSpan.textContent = 'LL';
+      llSpan.style.display = 'inline-block';
+      llSpan.style.fontFeatureSettings = '"liga" 1, "dlig" 1';
+      llSpan.style.letterSpacing = '0';
+      $stage.insertBefore(llSpan, spans[12]);
+      spans[12].remove();
+      spans[13].remove();
+    })();
+
     // Fade in sublogo
     await wait(160);
     $sub.classList.add('show');
@@ -604,9 +723,16 @@
     const fromRect = $center.getBoundingClientRect();
     const toRect   = $logo.getBoundingClientRect();
 
-    const stagePx = parseFloat(getComputedStyle($stage).fontSize);
-    const logoPx  = parseFloat(getComputedStyle($logo.querySelector('.logo-name')).fontSize);
-    const scale   = logoPx / stagePx;
+    const stagePx    = parseFloat(getComputedStyle($stage).fontSize);
+    const logoPx     = parseFloat(getComputedStyle($logo.querySelector('.logo-name')).fontSize);
+    const scale      = logoPx / stagePx;
+
+    // Set intro-sub to the exact size that lands on logo-sub after scaling.
+    // Formula: fontSize × scale = logoSubPx  →  fontSize = logoSubPx / scale
+    // This is guaranteed correct regardless of any clamp() drift between the
+    // two elements' CSS curves.
+    const logoSubPx  = parseFloat(getComputedStyle($logo.querySelector('.logo-sub')).fontSize);
+    $sub.style.fontSize = (logoSubPx / scale) + 'px';
 
     // Pin intro-center at its current screen coords
     $center.style.position      = 'fixed';
@@ -648,9 +774,39 @@
   function phase3() {
     $main.classList.add('show');
     $footer.classList.add('show');
+    // Mark animation as seen for this session
+    sessionStorage.setItem('introSeen', '1');
   }
 
-  phase1();
+  // Skip animation if already seen this session (return nav or refresh)
+  if (sessionStorage.getItem('introSeen')) {
+    // Jump straight to static header + content
+    document.body.style.overflow = '';
+    $overlay.style.display = 'none';
+    $header.classList.add('show');
+    $headerRight.style.opacity = '1';
+    phase3();
+  } else {
+    phase1();
+  }
+})();
+</script>
+
+<button id="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+    <path d="M12 5l-7 7h4.5v7h5v-7H19z"/>
+  </svg>
+</button>
+
+<script>
+(function () {
+  var btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function () {
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 })();
 </script>
 
