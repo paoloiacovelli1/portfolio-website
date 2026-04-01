@@ -244,14 +244,22 @@
       display: block;
     }
 
-    /* ─── CARDS GRID (two cards side-by-side) ────────── */
-    .cards-grid {
+    /* ─── CARDS ACTIVATION ───────────────────────────── */
+    .cards-activation {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 3rem;
     }
 
-    .cards-grid img {
+    .cards-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .cards-stack img {
       width: 100%;
       display: block;
     }
@@ -372,10 +380,12 @@
         gap: 1rem;
       }
 
-      .cards-grid {
+      .cards-activation {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1.5rem;
       }
+
+      .cards-activation .pair-copy { order: -1; }
 
       .section-rule { margin-top: 3rem; }
     }
@@ -485,14 +495,12 @@
     <p class="section-label">Activations</p>
 
     <!-- Playing cards -->
-    <div class="img-text-pair img-left">
-      <p class="pair-copy">NCPG will print playing cards that look like vintage baseball cards and distribute them at stadiums, sports bars, and tailgates. The cards will have the same format, the same nostalgia, but instead of batting averages on the back, the cards will carry the educational stats the sports betting industry intentionally leaves out. And yes, people can also play cards with them.</p>
-      <div class="pair-image">
-        <div class="cards-grid">
-          <img src="campaigns/NCPG/cards1.jpg" alt="NCPG vintage-style playing cards">
-          <img src="campaigns/NCPG/cards2.jpg" alt="NCPG vintage-style playing cards">
-        </div>
+    <div class="cards-activation">
+      <div class="cards-stack">
+        <img src="campaigns/NCPG/cards1.jpg" alt="NCPG vintage-style playing cards">
+        <img src="campaigns/NCPG/cards2.jpg" alt="NCPG vintage-style playing cards">
       </div>
+      <p class="pair-copy">NCPG will print playing cards that look like vintage baseball cards and distribute them at stadiums, sports bars, and tailgates. The cards will have the same format, the same nostalgia, but instead of batting averages on the back, the cards will carry the educational stats the sports betting industry intentionally leaves out. And yes, people can also play cards with them.</p>
     </div>
 
     <!-- Guerrilla execution (no separate section header) -->
