@@ -244,13 +244,14 @@
       transition: letter-spacing 0.3s ease;
     }
 
-    .project-meta {
-      font-family: 'TenorSans', sans-serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+    .project-subtitle {
+      font-family: 'MostraNuova', serif;
+      font-weight: normal;
+      font-variant: small-caps;
+      font-size: clamp(1.4rem, 3.5vw, 3.15rem);
       color: var(--chartreuse);
-      opacity: 0.5;
+      opacity: 0.6;
+      letter-spacing: 0.02em;
     }
 
     .project-arrow {
@@ -318,6 +319,11 @@
       .project-item { grid-template-columns: 2.5rem 1fr; gap: 0 1rem; }
       .project-arrow { display: none; }
       nav { gap: 1.5rem; }
+      .project-subtitle {
+        display: block;
+        font-size: clamp(0.9rem, 3.5vw, 1.3rem);
+        margin-top: 0.25rem;
+      }
     }
 
     /* ─── BACK TO TOP ────────────────────────────────── */
@@ -393,8 +399,7 @@
       <a class="project-item" href="skip-hop.html">
         <span class="project-number">01</span>
         <div class="project-body">
-          <span class="project-title">Skip Hop</span>
-          <span class="project-meta">&nbsp;</span>
+          <span class="project-title">Skip Hop <span class="project-subtitle">(Still You)</span></span>
         </div>
         <span class="project-arrow">&#8599;</span>
       </a>
@@ -403,8 +408,7 @@
       <a class="project-item" href="ncpg.html">
         <span class="project-number">02</span>
         <div class="project-body">
-          <span class="project-title">NCPG</span>
-          <span class="project-meta">&nbsp;</span>
+          <span class="project-title">NCPG <span class="project-subtitle">(Big Betting is the New Big Tobacco)</span></span>
         </div>
         <span class="project-arrow">&#8599;</span>
       </a>
@@ -413,28 +417,25 @@
       <a class="project-item" href="waymo.html">
         <span class="project-number">03</span>
         <div class="project-body">
-          <span class="project-title">Waymo</span>
-          <span class="project-meta">&nbsp;</span>
+          <span class="project-title">Waymo <span class="project-subtitle">(Trust the Odds)</span></span>
         </div>
         <span class="project-arrow">&#8599;</span>
       </a>
     </li>
     <li>
-      <a class="project-item" href="#">
+      <a class="project-item" href="ceremonia.html">
         <span class="project-number">04</span>
         <div class="project-body">
-          <span class="project-title">Ceremonia</span>
-          <span class="project-meta">&nbsp;</span>
+          <span class="project-title">Ceremonia <span class="project-subtitle">(Reclaim Your Roots)</span></span>
         </div>
         <span class="project-arrow">&#8599;</span>
       </a>
     </li>
     <li>
-      <a class="project-item" href="#">
+      <a class="project-item" href="budweiser.html">
         <span class="project-number">05</span>
         <div class="project-body">
-          <span class="project-title">Budweiser</span>
-          <span class="project-meta">&nbsp;</span>
+          <span class="project-title">Budweiser <span class="project-subtitle">(Some Things Never Change)</span></span>
         </div>
         <span class="project-arrow">&#8599;</span>
       </a>
