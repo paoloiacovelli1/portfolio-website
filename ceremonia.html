@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skip Hop — Paolo Iacovelli</title>
+  <title>Ceremonia — Paolo Iacovelli</title>
   <style>
     @font-face {
       font-family: 'Catallina';
@@ -66,9 +66,7 @@
       font-feature-settings: "liga" 1;
     }
 
-    .ll-lig {
-      font-feature-settings: "liga" 1, "dlig" 1;
-    }
+    .ll-lig { font-feature-settings: "liga" 1, "dlig" 1; }
 
     .logo-sub {
       font-family: 'TenorSans', sans-serif;
@@ -131,120 +129,20 @@
     main {
       flex: 1;
       padding: 0 4rem 6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* ─── HERO LOGO (centered, ~middle third on desktop) */
-    .hero-logo {
-      padding: 4rem 33% 0;
-    }
-
-    .hero-logo img {
-      width: 100%;
-      display: block;
-    }
-
-    /* ─── TAGLINE + COPY ROW ─────────────────────────── */
-    .tagline-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-      padding: 3.5rem 0 4rem;
-      border-bottom: 1px solid rgba(55,84,191,0.15);
-    }
-
-    .project-headline {
+    .coming-soon {
       font-family: 'MostraNuova', serif;
       font-weight: normal;
       font-variant: small-caps;
-      font-size: clamp(2rem, 5vw, 5.5rem);
+      font-size: clamp(2rem, 6vw, 5rem);
       color: var(--blue);
-      line-height: 1.05;
-      letter-spacing: 0.02em;
-    }
-
-    .tagline-copy {
-      font-family: 'TenorSans', sans-serif;
-      font-size: clamp(0.85rem, 1.2vw, 1rem);
-      line-height: 1.85;
+      opacity: 0.35;
       letter-spacing: 0.04em;
-      color: var(--blue);
-      opacity: 0.85;
-      padding-top: 0.4rem;
-    }
-
-    .tagline-copy p + p { margin-top: 1.4em; }
-
-    /* ─── SECTION WRAPPER ────────────────────────────── */
-    .project-section {
-      padding: 4rem 0 0;
-    }
-
-    .section-label {
-      font-family: 'TenorSans', sans-serif;
-      font-size: clamp(1rem, 1.5vw, 1.3rem);
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--blue);
-      opacity: 0.7;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid rgba(55,84,191,0.15);
-      margin-bottom: 0;
-    }
-
-    /* ─── FULL-WIDTH IMAGE ───────────────────────────── */
-    .img-full {
-      margin-top: 3rem;
-    }
-
-    .img-full img {
-      width: 100%;
-      display: block;
-    }
-
-    /* ─── TWO-COLUMN IMAGE GRID ──────────────────────── */
-    .two-col-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .two-col-grid img {
-      width: 100%;
-      display: block;
-    }
-
-    /* ─── SOCIAL CENTERED (middle ~50% on desktop) ───── */
-    .social-centered {
-      padding: 0 25%;
-    }
-
-    /* ─── TACTIC LAYOUT ──────────────────────────────── */
-    .tactic-copy {
-      font-family: 'TenorSans', sans-serif;
-      font-size: clamp(0.85rem, 1.2vw, 1rem);
-      line-height: 1.85;
-      letter-spacing: 0.04em;
-      color: var(--blue);
-      opacity: 0.85;
-      margin-top: 3rem;
-    }
-
-    .tactic-full {
-      margin-top: 3rem;
-    }
-
-    .tactic-full img {
-      width: 100%;
-      display: block;
-    }
-
-    /* ─── SECTION BOTTOM RULE ────────────────────────── */
-    .section-rule {
-      border: none;
-      border-top: 1px solid rgba(55,84,191,0.15);
-      margin-top: 4rem;
+      text-align: center;
     }
 
     /* ─── FOOTER ─────────────────────────────────────── */
@@ -284,48 +182,13 @@
     .footer-social a:hover { opacity: 0.7; }
     .footer-social svg { width: 15px; height: 15px; fill: var(--chartreuse); }
 
-    /* ─── BACK TO TOP ────────────────────────────────── */
-    #back-to-top {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--chartreuse);
-      color: var(--blue);
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.3s ease, transform 0.3s ease, bottom 0.15s ease;
-      z-index: 50;
-      pointer-events: none;
-    }
-
-    #back-to-top.visible {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    #back-to-top:hover { opacity: 0.8; }
-
-    /* ─── RESPONSIVE: tablet ─────────────────────────── */
+    /* ─── RESPONSIVE ─────────────────────────────────── */
     @media (max-width: 768px) {
       header { padding: 2rem 2.5rem 1.5rem; }
       main { padding: 0 2.5rem 5rem; }
       footer { padding: 1.5rem 2.5rem; }
-
-      .hero-logo { padding: 3rem 15% 0; }
-      .tagline-row { gap: 3rem; }
-      .tactic-upper { gap: 2rem; }
     }
 
-    /* ─── RESPONSIVE: mobile ─────────────────────────── */
     @media (max-width: 700px) {
       header { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 2rem 1.5rem 1.5rem; }
       .header-right { align-items: flex-start; }
@@ -334,24 +197,6 @@
       footer { padding: 1.5rem; }
       .footer-left { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
       .footer-name::after { content: ''; }
-
-      .hero-logo { padding: 2.5rem 0 0; }
-      .project-headline { font-size: clamp(1.8rem, 7vw, 3rem); }
-
-      .tagline-row {
-        grid-template-columns: 1fr;
-        gap: 1.8rem;
-        padding: 2.5rem 0 3rem;
-      }
-
-      .social-centered { padding: 0; }
-
-      .two-col-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .section-rule { margin-top: 3rem; }
     }
   </style>
 </head>
@@ -384,94 +229,7 @@
 </header>
 
 <main>
-
-  <!-- ─── 1. Logo — centered middle third desktop, full width mobile ── -->
-  <div class="hero-logo">
-    <img src="campaigns/skip-hop/logo.png" alt="Skip Hop">
-  </div>
-
-  <!-- ─── 2. Tagline + manifesto ───────────────────────────────────── -->
-  <div class="tagline-row">
-    <h1 class="project-headline">Still You</h1>
-    <div class="tagline-copy">
-      <p>People spend their twenties curating their taste and style, yet when they have a baby they are expected to give up their sense of self.</p>
-      <p>Skip Hop is here to say you don't need to sacrifice one for the other. Let's show parents that you can still be you, all while being a parent.</p>
-    </div>
-  </div>
-
-  <!-- ─── 3–5. Print ───────────────────────────────────────────────── -->
-  <section class="project-section">
-    <p class="section-label">Print</p>
-
-    <!-- 4. print1 -->
-    <div class="img-full">
-      <img src="campaigns/skip-hop/print1.png" alt="Skip Hop print campaign — execution 1">
-    </div>
-
-    <!-- 5. print2 -->
-    <div class="img-full">
-      <img src="campaigns/skip-hop/print2.png" alt="Skip Hop print campaign — execution 2">
-    </div>
-  </section>
-
-  <hr class="section-rule">
-
-  <!-- ─── 6–9. OOH ─────────────────────────────────────────────────── -->
-  <section class="project-section">
-    <p class="section-label">OOH</p>
-
-    <!-- 7. ooh1 -->
-    <div class="img-full">
-      <img src="campaigns/skip-hop/ooh1.png" alt="Skip Hop OOH — billboard execution 1">
-    </div>
-
-    <!-- 8. ooh2 -->
-    <div class="img-full">
-      <img src="campaigns/skip-hop/ooh2.png" alt="Skip Hop OOH — billboard execution 2">
-    </div>
-
-    <!-- 9. ooh3 -->
-    <div class="img-full">
-      <img src="campaigns/skip-hop/ooh3.png" alt="Skip Hop OOH — billboard execution 3">
-    </div>
-  </section>
-
-  <hr class="section-rule">
-
-  <!-- ─── 10–11. Social ────────────────────────────────────────────── -->
-  <section class="project-section">
-    <p class="section-label">Social</p>
-
-    <!-- 11. social1 left, social2 right — centered middle ~50% on desktop -->
-    <div class="social-centered">
-      <div class="two-col-grid">
-        <img src="campaigns/skip-hop/social1.png" alt="Skip Hop social — execution 1">
-        <img src="campaigns/skip-hop/social2.png" alt="Skip Hop social — execution 2">
-      </div>
-    </div>
-  </section>
-
-  <hr class="section-rule">
-
-  <!-- ─── 12–13. Tactic ────────────────────────────────────────────── -->
-  <section class="project-section">
-    <p class="section-label">Tactic</p>
-
-    <!-- copy — full width -->
-    <p class="tactic-copy">We partnered with Vogue's <em>In The Bag</em> series to launch the #inmydiaperbag challenge — inviting celebrities and everyday parents to share what's in their diaper bag. Because what you carry says as much about who you are as it ever did.</p>
-
-    <!-- tactic3 — full width -->
-    <div class="tactic-full">
-      <img src="campaigns/skip-hop/tactic3.png" alt="Skip Hop tactic — execution 3">
-    </div>
-
-    <!-- tactic1 + tactic2 — side by side -->
-    <div class="two-col-grid">
-      <img src="campaigns/skip-hop/tactic1.png" alt="Skip Hop tactic — execution 1">
-      <img src="campaigns/skip-hop/tactic2.png" alt="Skip Hop tactic — execution 2">
-    </div>
-  </section>
-
+  <p class="coming-soon">Coming soon...</p>
 </main>
 
 <footer>
@@ -492,31 +250,6 @@
     </a>
   </div>
 </footer>
-
-<button id="back-to-top" aria-label="Back to top">
-  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="4,16 12,8 20,16"/>
-  </svg>
-</button>
-
-<script>
-(function () {
-  var btn = document.getElementById('back-to-top');
-  var footer = document.querySelector('footer');
-  var gap = 16;
-  function onScroll() {
-    btn.classList.toggle('visible', window.scrollY > 300);
-    var footerTop = footer.getBoundingClientRect().top;
-    btn.style.bottom = footerTop < window.innerHeight
-      ? (window.innerHeight - footerTop + gap) + 'px'
-      : '2rem';
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  btn.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-})();
-</script>
 
 </body>
 </html>
