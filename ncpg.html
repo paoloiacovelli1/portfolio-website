@@ -264,6 +264,28 @@
       display: block;
     }
 
+    /* ─── CREDITS ────────────────────────────────────── */
+    .project-credits {
+      font-family: 'TenorSans', sans-serif;
+      font-size: clamp(0.7rem, 1vw, 0.82rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      opacity: 0.45;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(55,84,191,0.15);
+    }
+
+    .project-credits a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: opacity 0.2s;
+    }
+
+    .project-credits a:hover { opacity: 0.8; }
+
     /* ─── SECTION BOTTOM RULE ────────────────────────── */
     .section-rule {
       border: none;
@@ -511,6 +533,8 @@
       </div>
     </div>
   </section>
+
+  <p class="project-credits">Copywriter: Paolo Iacovelli &nbsp;|&nbsp; Art Director: <a href="https://www.abbypallant.com" target="_blank" rel="noopener">Abby Pallant</a></p>
 
 </main>
 
