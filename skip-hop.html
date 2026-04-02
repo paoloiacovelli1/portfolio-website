@@ -269,6 +269,55 @@
       margin-top: 4rem;
     }
 
+    /* ─── PROJECT NAVIGATION ────────────────────────── */
+    .project-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .project-nav a {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: var(--blue);
+      transition: opacity 0.2s;
+    }
+
+    .project-nav a:hover { opacity: 0.5; }
+
+    .project-nav-arrow {
+      font-size: 1rem;
+      opacity: 0.5;
+    }
+
+    .project-nav-label {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-nav-next .project-nav-label { align-items: flex-end; }
+
+    .project-nav-hint {
+      font-family: 'TenorSans', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blue);
+      opacity: 0.5;
+    }
+
+    .project-nav-title {
+      font-family: 'MostraNuova', serif;
+      font-weight: normal;
+      font-variant: small-caps;
+      font-size: clamp(1rem, 2vw, 1.6rem);
+      letter-spacing: 0.02em;
+      color: var(--blue);
+    }
+
     /* ─── FOOTER ─────────────────────────────────────── */
     footer {
       background: var(--blue);
@@ -495,6 +544,17 @@
   </section>
 
   <p class="project-credits">Copywriter: Paolo Iacovelli &nbsp;|&nbsp; Art Director: <a href="https://www.rubytyson.com/" target="_blank" rel="noopener">Ruby Tyson</a></p>
+
+  <nav class="project-nav">
+    <span></span>
+    <a class="project-nav-next" href="ncpg.html">
+      <div class="project-nav-label">
+        <span class="project-nav-hint">Next</span>
+        <span class="project-nav-title">NCPG</span>
+      </div>
+      <span class="project-nav-arrow">&#8594;</span>
+    </a>
+  </nav>
 
 </main>
 
