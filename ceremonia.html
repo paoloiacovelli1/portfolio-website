@@ -66,7 +66,9 @@
       font-feature-settings: "liga" 1;
     }
 
-    .ll-lig { font-feature-settings: "liga" 1, "dlig" 1; }
+    .ll-lig {
+      font-feature-settings: "liga" 1, "dlig" 1;
+    }
 
     .logo-sub {
       font-family: 'TenorSans', sans-serif;
@@ -129,26 +131,133 @@
     main {
       flex: 1;
       padding: 0 4rem 6rem;
-      display: flex;
-      flex-direction: column;
     }
 
-    .coming-soon-wrapper {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* ─── HERO LOGO ──────────────────────────────────── */
+    .hero-logo {
+      padding: 4rem 33% 0;
     }
 
-    .coming-soon {
+    .hero-logo img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ─── TAGLINE + COPY ROW ─────────────────────────── */
+    .tagline-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      padding: 3.5rem 0 4rem;
+      border-bottom: 1px solid rgba(55,84,191,0.15);
+    }
+
+    .project-headline {
       font-family: 'MostraNuova', serif;
       font-weight: normal;
       font-variant: small-caps;
-      font-size: clamp(2rem, 6vw, 5rem);
+      font-size: clamp(2rem, 5vw, 5.5rem);
       color: var(--blue);
-      opacity: 0.35;
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+    }
+
+    .tagline-copy {
+      font-family: 'TenorSans', sans-serif;
+      font-size: clamp(0.85rem, 1.2vw, 1rem);
+      line-height: 1.85;
       letter-spacing: 0.04em;
-      text-align: center;
+      color: var(--blue);
+      opacity: 0.85;
+      padding-top: 0.4rem;
+    }
+
+    .tagline-copy p + p { margin-top: 1.4em; }
+
+    /* ─── SECTION WRAPPER ────────────────────────────── */
+    .project-section {
+      padding: 4rem 0 0;
+    }
+
+    .section-label {
+      font-family: 'TenorSans', sans-serif;
+      font-size: clamp(1rem, 1.5vw, 1.3rem);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blue);
+      opacity: 0.7;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(55,84,191,0.15);
+    }
+
+    /* ─── SUBSECTION LABEL ───────────────────────────── */
+    .subsection-label {
+      font-family: 'MostraNuova', serif;
+      font-weight: normal;
+      font-variant: small-caps;
+      font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+      color: var(--blue);
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      margin-top: 4rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(55,84,191,0.15);
+    }
+
+    /* ─── FULL-WIDTH IMAGE ───────────────────────────── */
+    .img-full {
+      margin-top: 3rem;
+    }
+
+    .img-full img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ─── TWO-COLUMN IMAGE GRID ──────────────────────── */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .two-col-grid img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ─── COPY + IMAGE PAIR ──────────────────────────── */
+    .copy-image-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+
+    .pair-copy {
+      font-family: 'TenorSans', sans-serif;
+      font-size: clamp(0.85rem, 1.2vw, 1rem);
+      line-height: 1.85;
+      letter-spacing: 0.04em;
+      color: var(--blue);
+      opacity: 0.85;
+    }
+
+    .pair-copy p + p { margin-top: 1.4em; }
+
+    .pair-image img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ─── SECTION BOTTOM RULE ────────────────────────── */
+    .section-rule {
+      border: none;
+      border-top: 1px solid rgba(55,84,191,0.15);
+      margin-top: 4rem;
     }
 
     /* ─── PROJECT NAVIGATION ────────────────────────── */
@@ -156,9 +265,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(55,84,191,0.15);
+      margin-top: 2rem;
     }
 
     .project-nav a {
@@ -239,13 +346,48 @@
     .footer-social a:hover { opacity: 0.7; }
     .footer-social svg { width: 15px; height: 15px; fill: var(--chartreuse); }
 
-    /* ─── RESPONSIVE ─────────────────────────────────── */
+    /* ─── BACK TO TOP ────────────────────────────────── */
+    #back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--chartreuse);
+      color: var(--blue);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s ease, transform 0.3s ease, bottom 0.15s ease;
+      z-index: 50;
+      pointer-events: none;
+    }
+
+    #back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    #back-to-top:hover { opacity: 0.8; }
+
+    /* ─── RESPONSIVE: tablet ─────────────────────────── */
     @media (max-width: 768px) {
       header { padding: 2rem 2.5rem 1.5rem; }
       main { padding: 0 2.5rem 5rem; }
       footer { padding: 1.5rem 2.5rem; }
+
+      .hero-logo { padding: 3rem 25% 0; }
+      .tagline-row { gap: 3rem; }
+      .copy-image-pair { gap: 2.5rem; }
     }
 
+    /* ─── RESPONSIVE: mobile ─────────────────────────── */
     @media (max-width: 700px) {
       header { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 2rem 1.5rem 1.5rem; }
       .header-right { align-items: flex-start; }
@@ -254,6 +396,31 @@
       footer { padding: 1.5rem; }
       .footer-left { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
       .footer-name::after { content: ''; }
+
+      .hero-logo { padding: 2.5rem 0 0; }
+      .project-headline { font-size: clamp(1.8rem, 7vw, 3rem); }
+      .subsection-label { font-size: clamp(1.3rem, 5vw, 1.8rem); margin-top: 3rem; }
+
+      .tagline-row {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+        padding: 2.5rem 0 3rem;
+      }
+
+      .two-col-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .copy-image-pair {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      /* image-first pairs: bring copy before image on mobile */
+      .copy-image-pair--image-first .pair-copy { order: -1; }
+
+      .section-rule { margin-top: 3rem; }
     }
   </style>
 </head>
@@ -286,11 +453,76 @@
 </header>
 
 <main>
-  <div class="coming-soon-wrapper">
-    <p class="coming-soon">Coming soon...</p>
+
+  <!-- ─── Logo ─────────────────────────────────────────────────────── -->
+  <div class="hero-logo">
+    <img src="campaigns/ceremonia/ceremonia-logo.png" alt="Ceremonia">
   </div>
 
-  <nav class="project-nav">
+  <!-- ─── Tagline + manifesto ─────────────────────────────────────── -->
+  <div class="tagline-row">
+    <h1 class="project-headline">Reclaim Your Roots</h1>
+    <div class="tagline-copy">
+      <p>Latin parents shy away from passing their heritage down to their kids in order to assimilate for survival, yet the blend of culture is the foundation of this country.</p>
+      <p>Embracing and unapologetically expressing culture is a bold rebuke of assimilation – and Ceremonia is starting that rebellion with the caring of your natural hair. Reclaim your Latin roots through a call to rebel.</p>
+    </div>
+  </div>
+
+  <!-- ─── OOH ──────────────────────────────────────────────────────── -->
+  <section class="project-section">
+    <p class="section-label">OOH</p>
+
+    <!-- poster1 + poster2 side by side -->
+    <div class="two-col-grid">
+      <img src="campaigns/ceremonia/poster1.png" alt="Ceremonia OOH — poster 1">
+      <img src="campaigns/ceremonia/poster2.png" alt="Ceremonia OOH — poster 2">
+    </div>
+
+    <div class="img-full">
+      <img src="campaigns/ceremonia/poster3.png" alt="Ceremonia OOH — poster 3">
+    </div>
+
+    <div class="img-full">
+      <img src="campaigns/ceremonia/poster4.png" alt="Ceremonia OOH — poster 4">
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- ─── Activations ─────────────────────────────────────────────── -->
+  <section class="project-section">
+    <p class="section-label">Activations</p>
+
+    <!-- ── Ceremonia Mural ───────────────────────────────────────── -->
+    <p class="subsection-label">Ceremonia Mural</p>
+
+    <!-- copy left + activation1 right -->
+    <div class="copy-image-pair">
+      <div class="pair-copy">
+        <p>Ceremonia is commissioning murals in Latino neighborhoods across America painted by Latin artists depicting women with natural hair in the visual language of cultural pride. The murals are going up on the sides of bodegas, community centers, and schools.</p>
+      </div>
+      <div class="pair-image">
+        <img src="campaigns/ceremonia/activation1.png" alt="Ceremonia Mural">
+      </div>
+    </div>
+
+    <!-- ── Freedom from Alisado ──────────────────────────────────── -->
+    <p class="subsection-label">Freedom from Alisado</p>
+
+    <!-- activation2 left + copy right; on mobile copy reorders to top -->
+    <div class="copy-image-pair copy-image-pair--image-first">
+      <div class="pair-image">
+        <img src="campaigns/ceremonia/activation2.png" alt="Freedom from Alisado">
+      </div>
+      <div class="pair-copy">
+        <p>We're setting up booths in Latin neighborhoods with one offer: bring in your chemical straightening products and exchange them for Ceremonia products.</p>
+        <p>Handing over your relaxer kit gets you a Ceremonia starter set bundle accompanied with a card that says "Chemical straightening is the enemy."</p>
+      </div>
+    </div>
+
+  </section>
+
+  <nav class="project-nav" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(55,84,191,0.15);">
     <a class="project-nav-prev" href="waymo.html">
       <span class="project-nav-arrow">&#8592;</span>
       <div class="project-nav-label">
@@ -306,6 +538,7 @@
       <span class="project-nav-arrow">&#8594;</span>
     </a>
   </nav>
+
 </main>
 
 <footer>
@@ -326,6 +559,31 @@
     </a>
   </div>
 </footer>
+
+<button id="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="4,16 12,8 20,16"/>
+  </svg>
+</button>
+
+<script>
+(function () {
+  var btn = document.getElementById('back-to-top');
+  var footer = document.querySelector('footer');
+  var gap = 16;
+  function onScroll() {
+    btn.classList.toggle('visible', window.scrollY > 300);
+    var footerTop = footer.getBoundingClientRect().top;
+    btn.style.bottom = footerTop < window.innerHeight
+      ? (window.innerHeight - footerTop + gap) + 'px'
+      : '2rem';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
 
 </body>
 </html>
