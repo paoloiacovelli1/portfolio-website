@@ -66,7 +66,9 @@
       font-feature-settings: "liga" 1;
     }
 
-    .ll-lig { font-feature-settings: "liga" 1, "dlig" 1; }
+    .ll-lig {
+      font-feature-settings: "liga" 1, "dlig" 1;
+    }
 
     .logo-sub {
       font-family: 'TenorSans', sans-serif;
@@ -129,26 +131,122 @@
     main {
       flex: 1;
       padding: 0 4rem 6rem;
-      display: flex;
-      flex-direction: column;
     }
 
-    .coming-soon-wrapper {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* ─── HERO LOGO ──────────────────────────────────── */
+    .hero-logo {
+      padding: 4rem 33% 0;
     }
 
-    .coming-soon {
+    .hero-logo img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ─── TAGLINE + COPY ROW ─────────────────────────── */
+    .tagline-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      padding: 3.5rem 0 4rem;
+      border-bottom: 1px solid rgba(55,84,191,0.15);
+    }
+
+    .project-headline {
       font-family: 'MostraNuova', serif;
       font-weight: normal;
       font-variant: small-caps;
-      font-size: clamp(2rem, 6vw, 5rem);
+      font-size: clamp(2rem, 5vw, 5.5rem);
       color: var(--blue);
-      opacity: 0.35;
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+    }
+
+    .tagline-copy {
+      font-family: 'TenorSans', sans-serif;
+      font-size: clamp(0.85rem, 1.2vw, 1rem);
+      line-height: 1.85;
       letter-spacing: 0.04em;
-      text-align: center;
+      color: var(--blue);
+      opacity: 0.85;
+      padding-top: 0.4rem;
+    }
+
+    .tagline-copy p + p { margin-top: 1.4em; }
+
+    /* ─── SECTION WRAPPER ────────────────────────────── */
+    .project-section {
+      padding: 4rem 0 0;
+    }
+
+    .section-label {
+      font-family: 'TenorSans', sans-serif;
+      font-size: clamp(1rem, 1.5vw, 1.3rem);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blue);
+      opacity: 0.7;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(55,84,191,0.15);
+    }
+
+    /* ─── SUBSECTION LABEL ───────────────────────────── */
+    .subsection-label {
+      font-family: 'MostraNuova', serif;
+      font-weight: normal;
+      font-variant: small-caps;
+      font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+      color: var(--blue);
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      margin-top: 4rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(55,84,191,0.15);
+    }
+
+    /* ─── FULL-WIDTH IMAGE ───────────────────────────── */
+    .img-full {
+      margin-top: 3rem;
+    }
+
+    .img-full img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ─── TWO-COLUMN IMAGE GRID ──────────────────────── */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .two-col-grid img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ─── ACTIVATION COPY ────────────────────────────── */
+    .activation-copy {
+      font-family: 'TenorSans', sans-serif;
+      font-size: clamp(0.85rem, 1.2vw, 1rem);
+      line-height: 1.85;
+      letter-spacing: 0.04em;
+      color: var(--blue);
+      opacity: 0.85;
+      margin-top: 2rem;
+      max-width: 72ch;
+    }
+
+    .activation-copy p + p { margin-top: 1.4em; }
+
+    /* ─── SECTION BOTTOM RULE ────────────────────────── */
+    .section-rule {
+      border: none;
+      border-top: 1px solid rgba(55,84,191,0.15);
+      margin-top: 4rem;
     }
 
     /* ─── PROJECT NAVIGATION ────────────────────────── */
@@ -239,13 +337,46 @@
     .footer-social a:hover { opacity: 0.7; }
     .footer-social svg { width: 15px; height: 15px; fill: var(--chartreuse); }
 
-    /* ─── RESPONSIVE ─────────────────────────────────── */
+    /* ─── BACK TO TOP ────────────────────────────────── */
+    #back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--chartreuse);
+      color: var(--blue);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s ease, transform 0.3s ease, bottom 0.15s ease;
+      z-index: 50;
+      pointer-events: none;
+    }
+
+    #back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    #back-to-top:hover { opacity: 0.8; }
+
+    /* ─── RESPONSIVE: tablet ─────────────────────────── */
     @media (max-width: 768px) {
       header { padding: 2rem 2.5rem 1.5rem; }
       main { padding: 0 2.5rem 5rem; }
       footer { padding: 1.5rem 2.5rem; }
+
+      .hero-logo { padding: 3rem 25% 0; }
     }
 
+    /* ─── RESPONSIVE: mobile ─────────────────────────── */
     @media (max-width: 700px) {
       header { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 2rem 1.5rem 1.5rem; }
       .header-right { align-items: flex-start; }
@@ -254,6 +385,24 @@
       footer { padding: 1.5rem; }
       .footer-left { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
       .footer-name::after { content: ''; }
+
+      .hero-logo { padding: 2.5rem 0 0; }
+      .project-headline { font-size: clamp(1.8rem, 7vw, 3rem); }
+      .activation-copy { max-width: 100%; }
+      .subsection-label { font-size: clamp(1.3rem, 5vw, 1.8rem); margin-top: 3rem; }
+
+      .tagline-row {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+        padding: 2.5rem 0 3rem;
+      }
+
+      .two-col-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .section-rule { margin-top: 3rem; }
     }
   </style>
 </head>
@@ -286,9 +435,76 @@
 </header>
 
 <main>
-  <div class="coming-soon-wrapper">
-    <p class="coming-soon">Coming soon...</p>
+
+  <!-- ─── Logo ────────────────────────────────────────────────────── -->
+  <div class="hero-logo">
+    <img src="campaigns/budweiser/logo.png" alt="Budweiser">
   </div>
+
+  <!-- ─── Tagline + manifesto ─────────────────────────────────────── -->
+  <div class="tagline-row">
+    <h1 class="project-headline">Some Things Never Change</h1>
+    <div class="tagline-copy">
+      <p>We live in an unstable and ever-changing world, yet some things (thankfully) stay the same. Budweiser hasn't changed in 150 years. It's survived through prohibition, world wars, cultural shifts, and every drink trend imaginable. Budweiser isn't old because it's outdated— it's old because it endured. Let's celebrate the comfort in the constant when some things never change.</p>
+    </div>
+  </div>
+
+  <!-- ─── OOH ──────────────────────────────────────────────────────── -->
+  <section class="project-section">
+    <p class="section-label">OOH</p>
+
+    <div class="img-full">
+      <img src="campaigns/budweiser/ooh1.png" alt="Budweiser OOH — execution 1">
+    </div>
+
+    <div class="img-full">
+      <img src="campaigns/budweiser/ooh2.png" alt="Budweiser OOH — execution 2">
+    </div>
+
+    <div class="two-col-grid">
+      <img src="campaigns/budweiser/ooh3.png" alt="Budweiser OOH — execution 3">
+      <img src="campaigns/budweiser/ooh4.png" alt="Budweiser OOH — execution 4">
+    </div>
+
+    <div class="img-full">
+      <img src="campaigns/budweiser/ooh5.png" alt="Budweiser OOH — execution 5">
+    </div>
+
+    <div class="two-col-grid">
+      <img src="campaigns/budweiser/ooh6.png" alt="Budweiser OOH — execution 6">
+      <img src="campaigns/budweiser/ooh7.png" alt="Budweiser OOH — execution 7">
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- ─── Digital ─────────────────────────────────────────────────── -->
+  <section class="project-section">
+    <p class="section-label">Digital</p>
+
+    <div class="img-full">
+      <img src="campaigns/budweiser/digital1.png" alt="Budweiser Digital — execution 1">
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
+  <!-- ─── Activations ─────────────────────────────────────────────── -->
+  <section class="project-section">
+    <p class="section-label">Activations</p>
+
+    <p class="subsection-label">For the Buds of Bud Time Capsule</p>
+
+    <div class="activation-copy">
+      <p>In towns across America named Bud, August babies are getting their first beer. They just can't have it yet.</p>
+      <p>Budweiser is burying a time capsule in every Bud town — Bud, Texas. Bud, West Virginia. Bud, Minnesota — sealed until 2047. Inside: a specially preserved bottle of Bud for every baby born there this August. We don't know what the world will look like in 21 years. But we know one thing for certain. Bud will still be Bud.</p>
+      <p>To the Buds of Bud: we'll see you in 21.</p>
+    </div>
+
+    <div class="img-full">
+      <img src="campaigns/budweiser/activation1.png" alt="For the Buds of Bud Time Capsule">
+    </div>
+  </section>
 
   <nav class="project-nav">
     <a class="project-nav-prev" href="ceremonia.html">
@@ -300,6 +516,7 @@
     </a>
     <span></span>
   </nav>
+
 </main>
 
 <footer>
@@ -320,6 +537,31 @@
     </a>
   </div>
 </footer>
+
+<button id="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="4,16 12,8 20,16"/>
+  </svg>
+</button>
+
+<script>
+(function () {
+  var btn = document.getElementById('back-to-top');
+  var footer = document.querySelector('footer');
+  var gap = 16;
+  function onScroll() {
+    btn.classList.toggle('visible', window.scrollY > 300);
+    var footerTop = footer.getBoundingClientRect().top;
+    btn.style.bottom = footerTop < window.innerHeight
+      ? (window.innerHeight - footerTop + gap) + 'px'
+      : '2rem';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
 
 </body>
 </html>
