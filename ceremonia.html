@@ -254,6 +254,35 @@
       display: block;
     }
 
+    /* ─── SUBSECTION COPY ───────────────────────────── */
+    .subsection-copy {
+      font-family: 'TenorSans', sans-serif;
+      font-size: clamp(0.85rem, 1.2vw, 1rem);
+      line-height: 1.85;
+      letter-spacing: 0.04em;
+      color: var(--blue);
+      opacity: 0.85;
+      margin-top: 2rem;
+    }
+
+    .subsection-copy p + p { margin-top: 1.4em; }
+
+    /* ─── SUBSECTION LABEL ITALIC ────────────────────── */
+    .subsection-label em { font-style: italic; }
+
+    /* ─── CREDITS ────────────────────────────────────── */
+    .project-credits {
+      font-family: 'TenorSans', sans-serif;
+      font-size: clamp(0.7rem, 1vw, 0.82rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      opacity: 0.45;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(55,84,191,0.15);
+    }
+
     /* ─── SECTION BOTTOM RULE ────────────────────────── */
     .section-rule {
       border: none;
@@ -490,6 +519,27 @@
 
   <hr class="section-rule">
 
+  <!-- ─── Social ──────────────────────────────────────────────────── -->
+  <section class="project-section">
+    <p class="section-label">Social</p>
+
+    <!-- ── Karol G x La Silla ───────────────────────────────────── -->
+    <p class="subsection-label">Karol G x <em>La Silla</em></p>
+
+    <!-- copy left + social1 right; copy first in DOM so it appears first on mobile -->
+    <div class="copy-image-pair">
+      <div class="pair-copy">
+        <p>Every salon in a Latin neighborhood has a chair that has heard everything. Births, quincea&ntilde;eras, weddings, divorces, graduations&hellip;</p>
+        <p>Ceremonia is partnering with Karol G to be the face of the rebellion. She&rsquo;s kicking off a Ceremonia Instagram series <em>La Silla</em> &mdash; The Chair. Featuring stylists working on Latina clients while they talk about their hair stories.</p>
+      </div>
+      <div class="pair-image">
+        <img src="campaigns/ceremonia/social1.png" alt="Karol G x La Silla">
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-rule">
+
   <!-- ─── Activations ─────────────────────────────────────────────── -->
   <section class="project-section">
     <p class="section-label">Activations</p>
@@ -521,9 +571,20 @@
       </div>
     </div>
 
+    <!-- ── Ceremonia x Euphoria ──────────────────────────────────── -->
+    <p class="subsection-label">Ceremonia x Euphoria</p>
+
+    <p class="subsection-copy">Ceremonia is coming to a big screen near you. Well, sort of. The big screen being your medium-sized television screen. Catch Ceremonia in Euphoria this Spring! Ceremonia product will be placed around Maddy&rsquo;s (Alexa Demie) bathroom sink. And who knows, it may just be in the background while she delivers another one of her iconic zingers.</p>
+
+    <div class="img-full">
+      <img src="campaigns/ceremonia/activation3.png" alt="Ceremonia x Euphoria">
+    </div>
+
   </section>
 
-  <nav class="project-nav" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(55,84,191,0.15);">
+  <p class="project-credits">Copywriter &amp; Art Director: Paolo Iacovelli</p>
+
+  <nav class="project-nav" style="margin-top: 2rem;">
     <a class="project-nav-prev" href="waymo.html">
       <span class="project-nav-arrow">&#8592;</span>
       <div class="project-nav-label">
