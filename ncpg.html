@@ -134,14 +134,27 @@
       padding: 0 4rem 6rem;
     }
 
-    /* ─── HERO LOGO (centered, ~middle third on desktop) */
+    /* ─── HERO LOGO (logo centered via padding; award absolute to right) */
     .hero-logo {
       padding: 4rem 33% 0;
+      position: relative;
     }
 
-    .hero-logo img {
+    .hero-logo img:not(.ncpg-award) {
       width: 100%;
       display: block;
+    }
+
+    /* Logo right edge sits at 67% of hero-logo width.
+       Halfway to right screen edge = 83.5%.
+       right: 10% + width: 13% → award center at 83.5%. */
+    .ncpg-award {
+      position: absolute;
+      right: 10%;
+      top: calc(50% + 2rem);
+      transform: translateY(-50%);
+      width: 13%;
+      height: auto;
     }
 
     /* ─── TAGLINE + COPY ROW ─────────────────────────── */
@@ -431,6 +444,7 @@
       footer { padding: 1.5rem 2.5rem; }
 
       .hero-logo { padding: 3rem 15% 0; }
+      .ncpg-award { top: calc(50% + 1.5rem); right: 1%; width: 11%; }
       .tagline-row { gap: 3rem; }
       .img-text-pair { gap: 2.5rem; }
     }
@@ -445,7 +459,20 @@
       .footer-left { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
       .footer-name::after { content: ''; }
 
-      .hero-logo { padding: 2.5rem 0 0; }
+      .hero-logo {
+        padding: 2.5rem 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-logo img:not(.ncpg-award) { width: 100%; }
+
+      .ncpg-award {
+        position: static;
+        width: 70px;
+        margin-bottom: 1.5rem;
+      }
       .project-headline { font-size: clamp(1.8rem, 7vw, 3rem); }
 
       .tagline-row {
@@ -514,6 +541,7 @@
 
   <!-- ─── Full-width NCPG logo ─────────────────────────── -->
   <div class="hero-logo">
+    <img class="ncpg-award" src="campaigns/NCPG/ncpg_award.PNG" alt="NCPG Award">
     <img src="campaigns/NCPG/ncpg_logo.png" alt="NCPG">
   </div>
 

@@ -255,6 +255,19 @@
       letter-spacing: 0.02em;
     }
 
+    .ncpg-project-body {
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .ncpg-award-badge {
+      display: block;
+      width: 66px;
+      height: auto;
+      flex-shrink: 0;
+    }
+
     .project-arrow {
       font-size: 1.2rem;
       color: var(--chartreuse);
@@ -417,8 +430,9 @@
     <li>
       <a class="project-item" href="ncpg.html">
         <span class="project-number">02</span>
-        <div class="project-body">
+        <div class="project-body ncpg-project-body">
           <span class="project-title">NCPG <span class="project-subtitle">(Big Betting is the New Big Tobacco)</span></span>
+          <img class="ncpg-award-badge" src="campaigns/NCPG/ncpg_award.PNG" alt="Award">
         </div>
         <span class="project-arrow">&#8599;</span>
       </a>
